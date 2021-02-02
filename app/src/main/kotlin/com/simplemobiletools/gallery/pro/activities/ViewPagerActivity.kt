@@ -15,19 +15,18 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
-import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore.Images
-import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
+import androidx.exifinterface.media.ExifInterface
 import androidx.print.PrintHelper
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
@@ -87,9 +86,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIgnoredPaths = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        useDynamicTheme = false
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
 
+        window.decorView.setBackgroundColor(config.backgroundColor)
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
         checkNotchSupport()
         (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.mapTo(mMediaFiles) { it as Medium }
@@ -132,7 +133,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val filename = getCurrentMedium()?.name ?: mPath.getFilenameFromPath()
-        supportActionBar?.title = Html.fromHtml("<font color=#FFFFFF'>$filename</font>")
+        supportActionBar?.title = filename
         window.statusBarColor = Color.TRANSPARENT
     }
 

@@ -77,11 +77,18 @@
     <string name="editor">Düzenleyici</string>
     <string name="rotate">Döndür</string>
     <string name="invalid_image_path">Geçersiz resim yolu</string>
+    <string name="invalid_video_path">Geçersiz video yolu</string>
     <string name="image_editing_failed">Resim düzenleme başarısız</string>
+    <string name="video_editing_failed">Video düzenleme başarısız</string>
     <string name="image_editing_cancelled">Resim düzenleme iptal edildi</string>
+    <string name="video_editing_cancelled">Video düzenleme iptal edildi</string>
     <string name="file_edited_successfully">Dosya başarıyla düzenlendi</string>
+    <string name="image_edited_successfully">Resim başarıyla düzenlendi</string>
+    <string name="video_edited_successfully">Video başarıyla düzenlendi</string>
     <string name="edit_image_with">Resmi şununla düzenle:</string>
-    <string name="no_editor_found">Resim düzenleyici bulunamadı</string>
+    <string name="edit_video_with">Videoyu şununla düzenle:</string>
+    <string name="no_image_editor_found">Resim düzenleyici bulunamadı</string>
+    <string name="no_video_editor_found">Video düzenleyici bulunamadı</string>
     <string name="unknown_file_location">Bilinmeyen dosya konumu</string>
     <string name="error_saving_file">Kaynak dosyanın üzerine yazılamadı</string>
     <string name="rotate_left">Sola döndür</string>
@@ -146,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Videoları otomatik oynat</string>
     <string name="remember_last_video_position">Son video oynatma konumunu hatırla</string>
-    <string name="toggle_filename">Dosya adı görünürlüğünü aç/kapat</string>
     <string name="loop_videos">Videoları tekrarla</string>
     <string name="animate_gifs">Küçük resimlerdeki GIF\'leri hareketlendir</string>
     <string name="max_brightness">Tam ekran medya görüntülerken maksimum parlaklık</string>
@@ -169,7 +175,7 @@
     <string name="allow_instant_change">Ekran kenarlarına tıklayarak anında medya değiştirmeye izin ver</string>
     <string name="allow_deep_zooming_images">Derin yakınlaştırma resimlerine izin ver</string>
     <string name="hide_extended_details">Durum çubuğu gizlendiğinde genişletilmiş ayrıntıları gizle</string>
-    <string name="show_at_bottom">Ekranın alt kısmındaki bazı eylem düğmelerini göster</string>
+    <string name="show_at_bottom">Ekranın alt kısmında bazı eylem düğmelerini göster</string>
     <string name="show_recycle_bin">Geri dönüşüm kutusu\'nu klasörler ekranında gösterme</string>
     <string name="deep_zoomable_images">Derin yakınlaştırılabilir resimler</string>
     <string name="show_highest_quality">Resimleri mümkün olan en yüksek kalitede göster</string>
@@ -186,6 +192,8 @@
     <string name="show_image_file_types">Resim dosyası türlerini göster</string>
     <string name="allow_zooming_videos">Videoları iki kez dokunarak yakınlaştırmaya izin ver</string>
     <string name="folder_thumbnail_style">Klasör küçük resim stili</string>
+    <string name="file_thumbnail_style">Dosya küçük resim stili</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Dosya sayısını ayrı bir satırda göster</string>
     <string name="show_file_count_brackets">Dosya sayısını parantez içinde göster</string>
     <string name="show_file_count_none">Dosya sayısını gösterme</string>
@@ -254,14 +262,45 @@
     <string name="pesdk_brush_title_brushColor">Fırça Rengi</string>
     <string name="pesdk_editor_title_name">Editör</string>
     <string name="pesdk_editor_title_closeEditorAlert">Editör kapatılsın mı?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Değişiklikler kaydedilmeden çıkılsın mı?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Değişiklikleri gerçekten atmak istiyor musunuz?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Evet</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Hayır</string>
     <string name="pesdk_editor_cancel">İptal</string>
     <string name="pesdk_editor_accept">Kabul Et</string>
     <string name="pesdk_editor_save">Kaydet</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Resim dışa aktarılıyor…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Resim dışa aktarılıyor %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Dışa aktarılıyor…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">%s dışa aktarılıyor.</string>
+    <string name="pesdk_sticker_title_name">Etiket</string>
+    <string name="pesdk_sticker_title_color">Sticker Color</string>
+    <string name="pesdk_sticker_title_options">Etiket Seçenekleri</string>
+    <string name="pesdk_sticker_button_add">Ekle</string>
+    <string name="pesdk_sticker_button_color">Color</string>
+    <string name="pesdk_sticker_button_delete">Sil</string>
+    <string name="pesdk_sticker_button_bringToFront">Öne</string>
+    <string name="pesdk_sticker_button_straighten">Straighten</string>
+    <string name="pesdk_sticker_button_replace">Değiştir</string>
+    <string name="pesdk_sticker_button_opacity">Opaklık</string>
+    <string name="pesdk_sticker_button_contrast">Contrast</string>
+    <string name="pesdk_sticker_button_saturation">Saturation</string>
+    <string name="pesdk_sticker_button_brightness">Brightness</string>
+    <string name="pesdk_sticker_category_name_custom">Uploads</string>
+    <string name="pesdk_overlay_title_name">Kaplama</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Karartma</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Örtme</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Kaplama</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Aydınlatma</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Çarpma</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Renk Yanması</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Hafif Aydınlık</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Şiddetli Aydınlık</string>
+    <string name="pesdk_overlay_asset_none">Hiçbiri</string>
+    <string name="pesdk_overlay_asset_golden">Altın</string>
+    <string name="pesdk_overlay_asset_lightleak1">Hafif Sızıntı 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Mozaik</string>
+    <string name="pesdk_overlay_asset_paper">Kağıt</string>
+    <string name="pesdk_overlay_asset_rain">Yağmur</string>
+    <string name="pesdk_overlay_asset_vintage">Nostaljik</string>
     <string name="pesdk_common_button_flipH">Yatay Çevir</string>
     <string name="pesdk_common_button_flipV">Dikey Çevir</string>
     <string name="pesdk_common_button_undo">Geri Al</string>
@@ -284,6 +323,7 @@
     <string name="pesdk_common_title_greenColor">Yeşil</string>
     <string name="pesdk_common_title_aquamarinColor">Akuamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipetlenebilir renk</string>
+    <string name="vesdk_video_trim_title_name">Kırp</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Basit Galeri\'yi nasıl varsayılan cihaz galerisi yapabilirim?</string>
@@ -314,6 +354,7 @@
     <string name="faq_13_text">Görüntüleri görüntülemek için geçerli çözüm, vakaların büyük çoğunluğunda iyi çalışır, ama daha iyi görüntü kalitesi istiyorsanız, \"Derin yakınlaştırılabilir resimler\" bölümündeki uygulama ayarlarında \"Resimleri mümkün olan en yüksek kalitede göster\" seçeneğini etkinleştirebilirsiniz.</string>
     <string name="faq_14_title">Bir dosya/klasör gizledim. Nasıl gösterebilirim?</string>
     <string name="faq_14_text">Ana ekranda \"Geçici olarak gizli öğeleri göster\" menü öğesine veya gizli öğeyi görmek için uygulama ayarlarında \"Gizli öğeleri göster\" seçeneğine tıklayabilirsiniz. Göstermek isterseniz, sadece uzun basın ve \"Göster\"i seçin. Klasörler gizlenmiş bir \".nomedia\" dosyası ekleyerek gizlenir, dosyayı herhangi bir dosya yöneticisi ile de silebilirsiniz.</string>
+    <string name="faq_14_text_extended">Ana ekranda \"Geçici olarak gizli öğeleri göster\" menü öğesine veya gizli öğeyi görmek için uygulama ayarlarında \"Gizli öğeleri göster\" seçeneğine tıklayabilirsiniz. Göstermek isterseniz, sadece uzun basın ve \"Göster\"i seçin. Klasörler gizlenmiş bir \".nomedia\" dosyası ekleyerek gizlenir, dosyayı herhangi bir dosya yöneticisi ile de silebilirsiniz. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Uygulama neden bu kadar yer kaplıyor?</string>
     <string name="faq_15_text">Uygulama önbelleği 250 MB\'a kadar çıkabilir, daha hızlı resim yüklemesini sağlar. Uygulama daha da fazla yer kaplıyorsa, büyük olasılıkla Geri Dönüşüm Kutusu\'nda öğe bulundurmanızdan kaynaklanmaktadır. Bu dosyalar uygulama boyutuna göre sayılır. Geri Dönüşüm Kutusu\'nu açarak ve tüm dosyaları silerek ya da uygulama ayarlarından temizleyebilirsiniz. Geri dönüşümdeki her dosya 30 gün sonra otomatik olarak silinir.</string>
 

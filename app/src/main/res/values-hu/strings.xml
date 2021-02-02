@@ -77,11 +77,18 @@
     <string name="editor">Szerkesztő</string>
     <string name="rotate">Forgatás</string>
     <string name="invalid_image_path">Érvénytelen kép elérési útvonal</string>
+    <string name="invalid_video_path">Invalid video path</string>
     <string name="image_editing_failed">Sikertelen kép szerkesztés</string>
+    <string name="video_editing_failed">Video editing failed</string>
     <string name="image_editing_cancelled">A képszerkesztés megszakítva</string>
+    <string name="video_editing_cancelled">Video editing cancelled</string>
     <string name="file_edited_successfully">A fájl szerkesztése sikerült</string>
+    <string name="image_edited_successfully">Image edited successfully</string>
+    <string name="video_edited_successfully">Video edited successfully</string>
     <string name="edit_image_with">Kép szerkesztés ezzel:</string>
-    <string name="no_editor_found">Nem található kép szerkesztő</string>
+    <string name="edit_video_with">Edit video with:</string>
+    <string name="no_image_editor_found">Nem található kép szerkesztő</string>
+    <string name="no_video_editor_found">No video editor found</string>
     <string name="unknown_file_location">Ismeretlen fájl hely</string>
     <string name="error_saving_file">Nem lehet felülírni a forrás fájlt</string>
     <string name="rotate_left">Forgatás balra</string>
@@ -146,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Automatikus videó lejátszás</string>
     <string name="remember_last_video_position">Emlékezzen a videó utolsó lejátszási pozícióra</string>
-    <string name="toggle_filename">Fájlnév láthatóság módosítása</string>
     <string name="loop_videos">Videók ismétlése</string>
     <string name="animate_gifs">Animált GIF miniatűr</string>
     <string name="max_brightness">Maximális fényerő a teljes képernyős médiánál</string>
@@ -186,6 +192,8 @@
     <string name="show_image_file_types">Mutassa a kép fájl típusokat</string>
     <string name="allow_zooming_videos">A videók nagyításának engedélyezése dupla koppintással</string>
     <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
@@ -254,14 +262,45 @@
     <string name="pesdk_brush_title_brushColor">Ecset színe</string>
     <string name="pesdk_editor_title_name">Szerkesztő</string>
     <string name="pesdk_editor_title_closeEditorAlert">Bezárja a szerkesztőt?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Valóban el akarja dobni a képet?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Valóban el akarja dobni a változtatásokat?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Igen</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nem</string>
     <string name="pesdk_editor_cancel">Mégsem</string>
     <string name="pesdk_editor_accept">Elfogad</string>
     <string name="pesdk_editor_save">Mentés</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Kép exportálása...</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">%s kép exportálása</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportálás…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">%s exportálása.</string>
+    <string name="pesdk_sticker_title_name">Sticker</string>
+    <string name="pesdk_sticker_title_color">Sticker Color</string>
+    <string name="pesdk_sticker_title_options">Sticker Options</string>
+    <string name="pesdk_sticker_button_add">Add</string>
+    <string name="pesdk_sticker_button_color">Color</string>
+    <string name="pesdk_sticker_button_delete">Delete</string>
+    <string name="pesdk_sticker_button_bringToFront">To Front</string>
+    <string name="pesdk_sticker_button_straighten">Straighten</string>
+    <string name="pesdk_sticker_button_replace">Replace</string>
+    <string name="pesdk_sticker_button_opacity">Opacity</string>
+    <string name="pesdk_sticker_button_contrast">Contrast</string>
+    <string name="pesdk_sticker_button_saturation">Saturation</string>
+    <string name="pesdk_sticker_button_brightness">Brightness</string>
+    <string name="pesdk_sticker_category_name_custom">Uploads</string>
+    <string name="pesdk_overlay_title_name">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Darken</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Multiply</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Color Burn</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Soft Light</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Hard Light</string>
+    <string name="pesdk_overlay_asset_none">None</string>
+    <string name="pesdk_overlay_asset_golden">Golden</string>
+    <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Mosaic</string>
+    <string name="pesdk_overlay_asset_paper">Paper</string>
+    <string name="pesdk_overlay_asset_rain">Rain</string>
+    <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Tükrözés vízszintesen</string>
     <string name="pesdk_common_button_flipV">Tükrözés függőlegesen</string>
     <string name="pesdk_common_button_undo">Visszavonás</string>
@@ -284,6 +323,7 @@
     <string name="pesdk_common_title_greenColor">Zöld</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipetta szín</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Hogyan tudom beállítani a Simple Gallery-t alapértelmezett galériának?</string>
@@ -314,6 +354,7 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
     <string name="faq_13_text">Az esetek többségében a kép megjelenítés jelenlegi megoldása jól működik. Ha még jobb képminőséget szeretne, engedélyezheti a \"Mutassa a képeket a lehető legjobb minőségben\" opcióval az alkalmazás beállításaiban, a \"Mély nagyítású képek\" szakaszban.</string>
     <string name="faq_14_title">Elrejtettem egy fájlt/mappát. Hogyan tudom látni?</string>
     <string name="faq_14_text">A rejtett elemek megtekintéséhez nyomja meg a \"Rejtettek ideiglenes mutatása\" elemet a fő képernyőn, vagy válassza a \"Mutassa a rejtett elemeket\" az alkalmazás beállításaiban. Ha meg akarja szüntetni, csak hosszan nyomja meg, és válassza a \"Elrejtés megszüntetés\" lehetőséget. A mappák elrejtése egy rejtett \". nomedia\" fájl hozzáadásával történik. Ezt a fájlt bármelyik fájlkezelővel is törölheti.</string>
+    <string name="faq_14_text_extended">A rejtett elemek megtekintéséhez nyomja meg a \"Rejtettek ideiglenes mutatása\" elemet a fő képernyőn, vagy válassza a \"Mutassa a rejtett elemeket\" az alkalmazás beállításaiban. Ha meg akarja szüntetni, csak hosszan nyomja meg, és válassza a \"Elrejtés megszüntetés\" lehetőséget. A mappák elrejtése egy rejtett \". nomedia\" fájl hozzáadásával történik. Ezt a fájlt bármelyik fájlkezelővel is törölheti. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Miért használ az alkalmazás ennyi helyet?</string>
     <string name="faq_15_text">Az alkalmazás gyorsítótára akár a 250 MB-ot is meghaladhatja, és ez gyorsabb megjelenítést biztosít. Ha az alkalmazás még több helyet foglal el, a legvalószínűbb oka, hogy a Lomtárban is van elem. Ezek a fájlok is az alkalmazás méretébe számítanak bele. Törölheti a Lomtárat azzal, hogy megnyitja és törli az összes fájlt vagy az alkalmazás beállításait. A Lomtárban lévő minden fájl 30 nap elteltével automatikusan törlődik.</string>
 

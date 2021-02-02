@@ -77,11 +77,18 @@
     <string name="editor">Penyunting</string>
     <string name="rotate">Rotasi</string>
     <string name="invalid_image_path">Jalur gambar tidak valid</string>
+    <string name="invalid_video_path">Invalid video path</string>
     <string name="image_editing_failed">Gagal menyunting gambar</string>
+    <string name="video_editing_failed">Video editing failed</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="video_editing_cancelled">Video editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
+    <string name="image_edited_successfully">Image edited successfully</string>
+    <string name="video_edited_successfully">Video edited successfully</string>
     <string name="edit_image_with">Sunting gambar dengan:</string>
-    <string name="no_editor_found">Tidak ditemukan aplikasi penyunting gambar</string>
+    <string name="edit_video_with">Edit video with:</string>
+    <string name="no_image_editor_found">Tidak ditemukan aplikasi penyunting gambar</string>
+    <string name="no_video_editor_found">No video editor found</string>
     <string name="unknown_file_location">Lokasi berkas tidak diketahui</string>
     <string name="error_saving_file">Tidak bisa mengganti berkas sumber</string>
     <string name="rotate_left">Putar ke kiri</string>
@@ -146,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Putar video secara otomatis</string>
     <string name="remember_last_video_position">Ingat posisi pemutaran terakhir</string>
-    <string name="toggle_filename">Ubah visibilitas nama berkas</string>
     <string name="loop_videos">Video berulang</string>
     <string name="animate_gifs">Animasi GIF di thumbnail</string>
     <string name="max_brightness">Kecerahan maksimum saat melihat di layar penuh</string>
@@ -186,6 +192,8 @@
     <string name="show_image_file_types">Tampilkan tipe berkas gambar</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
     <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
@@ -254,14 +262,45 @@
     <string name="pesdk_brush_title_brushColor">Warna Kuas</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Tutup Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Buang perubahan pada gambar?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ya</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Tidak</string>
     <string name="pesdk_editor_cancel">Batal</string>
     <string name="pesdk_editor_accept">Terima</string>
     <string name="pesdk_editor_save">Simpan</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Mengekspor gambar…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Mengekspor gambar %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Mengekspor…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Mengekspor %s.</string>
+    <string name="pesdk_sticker_title_name">Sticker</string>
+    <string name="pesdk_sticker_title_color">Sticker Color</string>
+    <string name="pesdk_sticker_title_options">Sticker Options</string>
+    <string name="pesdk_sticker_button_add">Add</string>
+    <string name="pesdk_sticker_button_color">Color</string>
+    <string name="pesdk_sticker_button_delete">Delete</string>
+    <string name="pesdk_sticker_button_bringToFront">To Front</string>
+    <string name="pesdk_sticker_button_straighten">Straighten</string>
+    <string name="pesdk_sticker_button_replace">Replace</string>
+    <string name="pesdk_sticker_button_opacity">Opacity</string>
+    <string name="pesdk_sticker_button_contrast">Contrast</string>
+    <string name="pesdk_sticker_button_saturation">Saturation</string>
+    <string name="pesdk_sticker_button_brightness">Brightness</string>
+    <string name="pesdk_sticker_category_name_custom">Uploads</string>
+    <string name="pesdk_overlay_title_name">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Darken</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Multiply</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Color Burn</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Soft Light</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Hard Light</string>
+    <string name="pesdk_overlay_asset_none">None</string>
+    <string name="pesdk_overlay_asset_golden">Golden</string>
+    <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Mosaic</string>
+    <string name="pesdk_overlay_asset_paper">Paper</string>
+    <string name="pesdk_overlay_asset_rain">Rain</string>
+    <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Balik H</string>
     <string name="pesdk_common_button_flipV">Balik V</string>
     <string name="pesdk_common_button_undo">Urungkan</string>
@@ -284,6 +323,7 @@
     <string name="pesdk_common_title_greenColor">Hijau</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Warna pipet</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Bagaimana cara menjadikan Simple Gallery sebagai aplikasi galeri default?</string>
@@ -314,6 +354,7 @@
     <string name="faq_13_text">Solusi saat ini untuk menampilkan gambar berfungsi dengan baik dalam sebagian besar kasus, namun jika anda ingin kualitas gambar yang lebih baik, anda bisa mengaktifkan \"Tampilkan gambar dalam kualitas tertinggi\" di pengaturan aplikasi, pada bagian \"Zum gambar mendalam\".</string>
     <string name="faq_14_title">Saya punya berkas/folder tersembunyi. Bagaimana cara memunculkannya?</string>
     <string name="faq_14_text">Anda bisa memilih menu \"Tampilkan sementara berkas tersembunyi\" di layar utama, atau \"Tampilkan berkas tersembunyi\" di pengaturan aplikasi untuk menampilkannya. Jika anda tidak ingin menyembunyikannya, tekan lama dan pilih \"Jangan sembunyikan\". Folder disembunyikan dengan menambahkan berkas \".nomedia\" di dalamnya, anda bisa menghapus berkas tersebut dengan aplikasi pengelola berkas.</string>
+    <string name="faq_14_text_extended">Anda bisa memilih menu \"Tampilkan sementara berkas tersembunyi\" di layar utama, atau \"Tampilkan berkas tersembunyi\" di pengaturan aplikasi untuk menampilkannya. Jika anda tidak ingin menyembunyikannya, tekan lama dan pilih \"Jangan sembunyikan\". Folder disembunyikan dengan menambahkan berkas \".nomedia\" di dalamnya, anda bisa menghapus berkas tersebut dengan aplikasi pengelola berkas. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Kenapa aplikasi menggunakan sangat banyak ruang kosong?</string>
     <string name="faq_15_text">Cache aplikasi bisa mencapai 250MB, ini untuk menjamin pemuatan gambar yang lebih cepat. Jika aplikasi menggunakan lebih banyak lagi ruang kosong, sangat memungkinkan anda memiliki item di dalam Keranjang Sampah. Berkas tersebut akan menambah ukuran aplikasi. Anda bisa mengosongkan Keranjang sampah dengan cara membukanya dan menghapus semua berkas, atau dari pengaturan aplikasi. Semua berkas di dalam keranjang sampah akan otomatis dihapus setelah 30 hari.</string>
 

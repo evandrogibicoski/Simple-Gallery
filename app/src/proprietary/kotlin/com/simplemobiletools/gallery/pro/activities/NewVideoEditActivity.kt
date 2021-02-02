@@ -3,11 +3,11 @@ package com.simplemobiletools.gallery.pro.activities
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
-import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import androidx.exifinterface.media.ExifInterface
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
@@ -19,27 +19,30 @@ import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
 import com.simplemobiletools.gallery.pro.extensions.tryDeleteFileDirItem
-import ly.img.android.pesdk.PhotoEditorSettingsList
+import ly.img.android.pesdk.VideoEditorSettingsList
 import ly.img.android.pesdk.assets.filter.basic.FilterPackBasic
 import ly.img.android.pesdk.assets.font.basic.FontPackBasic
+import ly.img.android.pesdk.assets.overlay.basic.OverlayPackBasic
+import ly.img.android.pesdk.assets.sticker.animated.StickerPackAnimated
+import ly.img.android.pesdk.assets.sticker.emoticons.StickerPackEmoticons
+import ly.img.android.pesdk.assets.sticker.shapes.StickerPackShapes
 import ly.img.android.pesdk.backend.model.config.CropAspectAsset
-import ly.img.android.pesdk.backend.model.constant.ImageExportFormat
 import ly.img.android.pesdk.backend.model.constant.OutputMode
 import ly.img.android.pesdk.backend.model.state.BrushSettings
 import ly.img.android.pesdk.backend.model.state.LoadSettings
-import ly.img.android.pesdk.backend.model.state.PhotoEditorSaveSettings
+import ly.img.android.pesdk.backend.model.state.VideoEditorSaveSettings
 import ly.img.android.pesdk.backend.model.state.manager.SettingsList
-import ly.img.android.pesdk.ui.activity.PhotoEditorBuilder
+import ly.img.android.pesdk.ui.activity.VideoEditorBuilder
 import ly.img.android.pesdk.ui.model.state.*
 import ly.img.android.pesdk.ui.panels.item.CropAspectItem
+import ly.img.android.pesdk.ui.panels.item.PersonalStickerAddItem
 import ly.img.android.pesdk.ui.panels.item.ToggleAspectItem
-import ly.img.android.pesdk.ui.panels.item.ToolItem
 import java.io.File
 import java.io.InputStream
 import java.io.OutputStream
 
-class NewEditActivity : SimpleActivity() {
-    private val PESDK_EDIT_IMAGE = 1
+class NewVideoEditActivity : SimpleActivity() {
+    private val VESDK_EDIT_VIDEO = 1
     private val SETTINGS_LIST = "SETTINGS_LIST"
     private val SOURCE_URI = "SOURCE_URI"
     private val RESULT_URI = "RESULT_URI"
@@ -51,7 +54,7 @@ class NewEditActivity : SimpleActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_edit)
+        setContentView(R.layout.activity_new_video_edit)
 
         if (checkAppSideloading()) {
             return
@@ -69,7 +72,7 @@ class NewEditActivity : SimpleActivity() {
 
     private fun initEditActivity() {
         if (intent.data == null) {
-            toast(R.string.invalid_image_path)
+            toast(R.string.invalid_video_path)
             finish()
             return
         }
@@ -103,7 +106,7 @@ class NewEditActivity : SimpleActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        if (requestCode == PESDK_EDIT_IMAGE) {
+        if (requestCode == VESDK_EDIT_VIDEO) {
             val extras = resultData?.extras
             val resultPath = extras?.get(RESULT_URI)?.toString() ?: ""
             val sourcePath = Uri.decode(extras?.get(SOURCE_URI)?.toString() ?: "")
@@ -116,7 +119,7 @@ class NewEditActivity : SimpleActivity() {
             }
 
             if (resultCode != Activity.RESULT_OK || resultPath.isEmpty()) {
-                toast(R.string.image_editing_cancelled)
+                toast(R.string.video_editing_cancelled)
                 finish()
             } else {
                 val source = if (sourcePath.isEmpty() || sourcePath.startsWith("content")) {
@@ -126,7 +129,7 @@ class NewEditActivity : SimpleActivity() {
                 }
 
                 SaveAsDialog(this, source, true, cancelCallback = {
-                    toast(R.string.image_editing_failed)
+                    toast(R.string.video_editing_failed)
                     finish()
                 }, callback = {
                     val destinationFilePath = it
@@ -177,7 +180,7 @@ class NewEditActivity : SimpleActivity() {
                                 }
                             }
                         } else {
-                            toast(R.string.image_editing_failed)
+                            toast(R.string.video_editing_failed)
                             finish()
                         }
                     }
@@ -201,7 +204,7 @@ class NewEditActivity : SimpleActivity() {
         }
     }
 
-    // in case the user wants to overwrite the original file and it is on an SD card, delete it manually. Else the system just appends (1)
+    // In case the user wants to overwrite the original file and it is on an SD card, delete it manually first. Else the system just appends (1)
     private fun handleFileOverwriting(path: String, callback: () -> Unit) {
         if (getDoesFilePathExist(path) && isPathOnSD(path)) {
             val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
@@ -218,22 +221,22 @@ class NewEditActivity : SimpleActivity() {
         }
     }
 
-    private fun openEditor(inputImage: Uri) {
+    private fun openEditor(inputVideo: Uri) {
         val settingsList = createPesdkSettingsList()
 
         settingsList.configure<LoadSettings> {
-            it.source = inputImage
+            it.source = inputVideo
         }
 
-        settingsList[LoadSettings::class].source = inputImage
+        settingsList[LoadSettings::class].source = inputVideo
 
-        PhotoEditorBuilder(this)
+        VideoEditorBuilder(this)
             .setSettingsList(settingsList)
-            .startActivityForResult(this, PESDK_EDIT_IMAGE)
+            .startActivityForResult(this, VESDK_EDIT_VIDEO)
     }
 
-    private fun createPesdkSettingsList(): PhotoEditorSettingsList {
-        val settingsList = PhotoEditorSettingsList().apply {
+    private fun createPesdkSettingsList(): VideoEditorSettingsList {
+        val settingsList = VideoEditorSettingsList().apply {
             configure<UiConfigFilter> {
                 it.setFilterList(FilterPackBasic.getFilterPack())
             }
@@ -269,26 +272,22 @@ class NewEditActivity : SimpleActivity() {
                 brushSize = applicationContext.config.editorBrushSize
             }
 
-            // do not use Text Design, it takes up too much space
-            val tools = getSettingsModel(UiConfigMainMenu::class.java).toolList
-            val newTools = tools.filterNot {
-                it.name!!.isEmpty()
-            }.toMutableList() as ArrayList<ToolItem>
-
-            // move Focus at the end, as it is the least used
-            // on some devices it is not obvious that the toolbar can be scrolled horizontally, so move the best ones at the beginning to make them visible
-            val focus = newTools.firstOrNull { it.name == getString(R.string.pesdk_focus_title_name) }
-            if (focus != null) {
-                newTools.remove(focus)
-                newTools.add(focus)
+            configure<UiConfigOverlay> {
+                it.setOverlayList(OverlayPackBasic.getOverlayPack())
             }
 
-            getSettingsModel(UiConfigMainMenu::class.java).setToolList(newTools)
+            configure<UiConfigSticker> {
+                it.setStickerLists(
+                    PersonalStickerAddItem(),
+                    StickerPackEmoticons.getStickerCategory(),
+                    StickerPackShapes.getStickerCategory(),
+                    StickerPackAnimated.getStickerCategory()
+                )
+            }
 
             getSettingsModel(UiConfigTheme::class.java).theme = R.style.Imgly_Theme_NoFullscreen
 
-            configure<PhotoEditorSaveSettings> {
-                it.setExportFormat(ImageExportFormat.AUTO)
+            configure<VideoEditorSaveSettings> {
                 it.setOutputToTemp()
                 it.outputMode = OutputMode.EXPORT_IF_NECESSARY
             }

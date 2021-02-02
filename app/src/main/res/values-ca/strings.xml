@@ -77,11 +77,18 @@
     <string name="editor">Editor</string>
     <string name="rotate">Rotar</string>
     <string name="invalid_image_path">Ruta de imatge no vàlida</string>
+    <string name="invalid_video_path">Invalid video path</string>
     <string name="image_editing_failed">Ha fallat la edició de la imatge</string>
+    <string name="video_editing_failed">Video editing failed</string>
     <string name="image_editing_cancelled">S\'ha cancel·lat l\'edició de la imatge</string>
+    <string name="video_editing_cancelled">Video editing cancelled</string>
     <string name="file_edited_successfully">Fitxer editar satisfactoriament</string>
+    <string name="image_edited_successfully">Image edited successfully</string>
+    <string name="video_edited_successfully">Video edited successfully</string>
     <string name="edit_image_with">Editar imatge utilitzant:</string>
-    <string name="no_editor_found">No s’ha trobat cap editor d’imatges</string>
+    <string name="edit_video_with">Edit video with:</string>
+    <string name="no_image_editor_found">No s’ha trobat cap editor d’imatges</string>
+    <string name="no_video_editor_found">No video editor found</string>
     <string name="unknown_file_location">Ubicació de l’arxiu desconeguda</string>
     <string name="error_saving_file">No s’ha pogut sobreescriure l’arxiu d’origen</string>
     <string name="rotate_left">Rotar a l’esquerra</string>
@@ -146,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>
     <string name="remember_last_video_position">Recordeu la posició de la darrera reproducció de vídeo</string>
-    <string name="toggle_filename">Canviar la visibilitat del nom d’arxiu</string>
     <string name="loop_videos">Reproducció continua de vídeos</string>
     <string name="animate_gifs">Animar les miniatures dels GIFs</string>
     <string name="max_brightness">Brillantor màxima quan es mostra multimèdia</string>
@@ -185,13 +191,15 @@
     <string name="avoid_showing_invalid_files">Eviteu mostrar fitxers no vàlids</string>
     <string name="show_image_file_types">Mostra els tipus de fitxers d\’imatges</string>
     <string name="allow_zooming_videos">Permet fer zoom als vídeos amb dos cops</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="folder_thumbnail_style">Estil de miniatura de carpeta</string>
+    <string name="file_thumbnail_style">Estil de miniatura del fitxer</string>
+    <string name="thumbnail_spacing">Espai entre miniatures</string>
+    <string name="show_file_count_line">Mostra el recompte de fitxers en una línia diferent</string>
+    <string name="show_file_count_brackets">Mostra el recompte de fitxers entre claudàtors</string>
+    <string name="show_file_count_none">No mostreu el recompte de fitxers</string>
+    <string name="limit_folder_title">Limiteu els títols de carpeta llarga a 1 línia</string>
+    <string name="square">Quadrat</string>
+    <string name="rounded_corners">Cantonades arrodonides</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
@@ -254,14 +262,45 @@
     <string name="pesdk_brush_title_brushColor"> de pinzellColor</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Tancar Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Vols realment descartar la imatge?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Si</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Cancel·lar</string>
     <string name="pesdk_editor_accept">Acceptar</string>
     <string name="pesdk_editor_save">Desar</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exportar imatge…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportant imatge %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportar…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportant %s.</string>
+    <string name="pesdk_sticker_title_name">Adhesiu</string>
+    <string name="pesdk_sticker_title_color">Color d\'adhesiu</string>
+    <string name="pesdk_sticker_title_options">Opcions d’adhesius</string>
+    <string name="pesdk_sticker_button_add">Afegeix</string>
+    <string name="pesdk_sticker_button_color">Color</string>
+    <string name="pesdk_sticker_button_delete">Suprimeix</string>
+    <string name="pesdk_sticker_button_bringToFront">Al capdavant</string>
+    <string name="pesdk_sticker_button_straighten">Estirar</string>
+    <string name="pesdk_sticker_button_replace">Substitueix</string>
+    <string name="pesdk_sticker_button_opacity">Opacitat</string>
+    <string name="pesdk_sticker_button_contrast">Contrast</string>
+    <string name="pesdk_sticker_button_saturation">Saturació</string>
+    <string name="pesdk_sticker_button_brightness">Brillantor</string>
+    <string name="pesdk_sticker_category_name_custom">Brillantor</string>
+    <string name="pesdk_overlay_title_name">Superposició</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Enfosquir</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Pantalla</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Superposició</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Alleugerir</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Multiplicar</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Color cremat</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Llum suau</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Llum dura</string>
+    <string name="pesdk_overlay_asset_none">Cap</string>
+    <string name="pesdk_overlay_asset_golden">Daurat</string>
+    <string name="pesdk_overlay_asset_lightleak1">Fuga de llum 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Mosaic</string>
+    <string name="pesdk_overlay_asset_paper">Paper</string>
+    <string name="pesdk_overlay_asset_rain">Pluja</string>
+    <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Voltejar H</string>
     <string name="pesdk_common_button_flipV">Voltejar V</string>
     <string name="pesdk_common_button_undo">Desfer</string>
@@ -284,6 +323,7 @@
     <string name="pesdk_common_title_greenColor">Verd</string>
     <string name="pesdk_common_title_aquamarinColor">Aiguamarina</string>
     <string name="pesdk_common_title_pipettableColor">Pipetejat de color</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Com puc fer que Simple Gallery sigui la galeria de dispositius predeterminada?</string>
@@ -314,6 +354,7 @@
     <string name="faq_13_text">La solució actual per mostrar imatges funciona bé en la gran majoria dels casos, però si voleu obtenir una millor qualitat d\'imatge, podeu activar \"Mostra les imatges amb la màxima qualitat possible\" a la configuració de l’aplicació, a la secció \"Imatges ampliades a mida\".</string>
     <string name="faq_14_title">He amagat un fitxer / carpeta. Com puc mostrar-la?</string>
     <string name="faq_14_text">Podeu prémer l’element de menú \"Mostra temporalment elements ocults\" a la pantalla principal o canviar \"Mostra els elements ocults\" a la configuració de l’aplicació per veure l’element amagat. Si voleu mostrar-la sempre, premeu-la i seleccioneu \"Mostra\". Les carpetes s\'amaguen afegint un fitxer \".nomedia\" ocult en elles, també podeu eliminar el fitxer amb qualsevol gestor de fitxers.</string>
+    <string name="faq_14_text_extended">Podeu prémer l’element de menú \"Mostra temporalment elements ocults\" a la pantalla principal o canviar \"Mostra els elements ocults\" a la configuració de l’aplicació per veure l’element amagat. Si voleu mostrar-la sempre, premeu-la i seleccioneu \"Mostra\". Les carpetes s\'amaguen afegint un fitxer \".nomedia\" ocult en elles, també podeu eliminar el fitxer amb qualsevol gestor de fitxers. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Per què l’aplicació ocupa molt d’espai?</string>
     <string name="faq_15_text">La memòria cau d’aplicacions pot ocupar fins a 250 MB, garanteix una càrrega de les imatges més ràpida. Si l’aplicació ocupa més espai, probablement sigui per tenir elements a la Paperera de reciclatge. Aquests fitxers compten a la mida de l’aplicació. Podeu esborrar la paperera de reciclatge obrint-la i suprimint tots els fitxers o des de la configuració de l’aplicació. Els fitxers de la paperera s’eliminen automàticament després de 30 dies.</string>
 
